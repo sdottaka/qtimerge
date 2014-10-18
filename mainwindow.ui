@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QtIMerge</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QMdiArea" name="mdiArea">
+      <property name="viewMode">
+       <enum>QMdiArea::TabbedView</enum>
+      </property>
+      <property name="documentMode">
+       <bool>false</bool>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+      <property name="tabsMovable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_View">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="actionViewZoomIn"/>
+    <addaction name="actionViewZoomOut"/>
+   </widget>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionFileOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionFileSave"/>
+    <addaction name="separator"/>
+    <addaction name="actionFileClose"/>
+    <addaction name="separator"/>
+    <addaction name="actionFileExit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Merge">
+    <property name="title">
+     <string>&amp;Merge</string>
+    </property>
+    <addaction name="actionMergeNextDifference"/>
+    <addaction name="actionMergePreviousDifferece"/>
+    <addaction name="separator"/>
+    <addaction name="actionMergeFirstDifference"/>
+    <addaction name="actionMergeLastDifference"/>
+    <addaction name="separator"/>
+    <addaction name="actionMergeCopyToRight"/>
+    <addaction name="actionMergeCopyToLeft"/>
+    <addaction name="separator"/>
+    <addaction name="actionMergeCopyAllToRight"/>
+    <addaction name="actionMergeCopyAllToLeft"/>
+   </widget>
+   <widget class="QMenu" name="menu_Image">
+    <property name="title">
+     <string>&amp;Image</string>
+    </property>
+    <widget class="QMenu" name="menuImageDiffBlockSize">
+     <property name="title">
+      <string>Diff &amp;Block Size</string>
+     </property>
+     <addaction name="actionImageDiffBlockSize1"/>
+     <addaction name="actionImageDiffBlockSize2"/>
+     <addaction name="actionImageDiffBlockSize4"/>
+     <addaction name="actionImageDiffBlockSize8"/>
+     <addaction name="actionImageDiffBlockSize16"/>
+     <addaction name="actionImageDiffBlockSize32"/>
+    </widget>
+    <widget class="QMenu" name="menuIgnoreColorDifferencesColorDistanceThreshold">
+     <property name="title">
+      <string>&amp;Ignore Color Differences (Color Distance Threshold)</string>
+     </property>
+     <addaction name="actionImageThreshold0"/>
+     <addaction name="actionImageThreshold1"/>
+     <addaction name="actionImageThreshold2"/>
+     <addaction name="actionImageThreshold4"/>
+     <addaction name="actionImageThreshold8"/>
+     <addaction name="actionImageThreshold16"/>
+     <addaction name="actionImageThreshold32"/>
+    </widget>
+    <widget class="QMenu" name="menuImageActivePane">
+     <property name="title">
+      <string>&amp;Active Pane</string>
+     </property>
+     <addaction name="actionImageActivePanePreviousPage"/>
+     <addaction name="actionImageActivePaneNextPage"/>
+    </widget>
+    <widget class="QMenu" name="menuImageZoom">
+     <property name="title">
+      <string>&amp;Zoom</string>
+     </property>
+     <addaction name="actionImageZoom800"/>
+     <addaction name="actionImageZoom400"/>
+     <addaction name="actionImageZoom200"/>
+     <addaction name="actionImageZoom100"/>
+     <addaction name="actionImageZoom50"/>
+     <addaction name="actionImageZoom25"/>
+    </widget>
+    <widget class="QMenu" name="menuImageOverlay">
+     <property name="title">
+      <string>&amp;Overlay</string>
+     </property>
+     <addaction name="actionImageOverlayNone"/>
+     <addaction name="actionImageOverlayXOR"/>
+     <addaction name="actionImageOverlayAlphaBlend"/>
+    </widget>
+    <addaction name="actionImageViewDifferences"/>
+    <addaction name="menuImageDiffBlockSize"/>
+    <addaction name="menuIgnoreColorDifferencesColorDistanceThreshold"/>
+    <addaction name="separator"/>
+    <addaction name="actionImagePreviousPage"/>
+    <addaction name="actionImageNextPage"/>
+    <addaction name="menuImageActivePane"/>
+    <addaction name="separator"/>
+    <addaction name="menuImageZoom"/>
+    <addaction name="menuImageOverlay"/>
+    <addaction name="actionImageSetBackgroundColor"/>
+   </widget>
+   <widget class="QMenu" name="menu_Edit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="actionEditUndo"/>
+    <addaction name="actionEditRedo"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionHelpAbout"/>
+    <addaction name="actionHelpAboutQt"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_Edit"/>
+   <addaction name="menu_View"/>
+   <addaction name="menu_Merge"/>
+   <addaction name="menu_Image"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionFileOpen"/>
+   <addaction name="actionFileSave"/>
+   <addaction name="separator"/>
+   <addaction name="actionEditUndo"/>
+   <addaction name="actionEditRedo"/>
+   <addaction name="separator"/>
+   <addaction name="actionMergePreviousDifferece"/>
+   <addaction name="actionMergeNextDifference"/>
+   <addaction name="separator"/>
+   <addaction name="actionMergeFirstDifference"/>
+   <addaction name="actionMergeLastDifference"/>
+   <addaction name="separator"/>
+   <addaction name="actionMergeCopyToLeft"/>
+   <addaction name="actionMergeCopyToRight"/>
+   <addaction name="separator"/>
+   <addaction name="actionMergeCopyAllToLeft"/>
+   <addaction name="actionMergeCopyAllToRight"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionViewZoomIn">
+   <property name="text">
+    <string>Zoom &amp;In</string>
+   </property>
+  </action>
+  <action name="actionViewZoomOut">
+   <property name="text">
+    <string>Zoom &amp;Out</string>
+   </property>
+  </action>
+  <action name="actionFileExit">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/system-log-out-3.png</normaloff>:/images/images/system-log-out-3.png</iconset>
+   </property>
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionMergeNextDifference">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/go-down-5.png</normaloff>:/images/images/go-down-5.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Next Difference</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Down</string>
+   </property>
+  </action>
+  <action name="actionMergePreviousDifferece">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/go-up-5.png</normaloff>:/images/images/go-up-5.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Previous Difference</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Up</string>
+   </property>
+  </action>
+  <action name="actionMergeFirstDifference">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/go-top-4.png</normaloff>:/images/images/go-top-4.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;First Difference</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Home</string>
+   </property>
+  </action>
+  <action name="actionMergeLastDifference">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/go-bottom-4.png</normaloff>:/images/images/go-bottom-4.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Last Difference</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+End</string>
+   </property>
+  </action>
+  <action name="actionMergeCopyToLeft">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/go-previous-5.png</normaloff>:/images/images/go-previous-5.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy to L&amp;eft</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Left</string>
+   </property>
+  </action>
+  <action name="actionMergeCopyToRight">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/go-next-5.png</normaloff>:/images/images/go-next-5.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy to &amp;Right</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Right</string>
+   </property>
+  </action>
+  <action name="actionMergeCopyAllToRight">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/go-last-3.png</normaloff>:/images/images/go-last-3.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy &amp;All to Right</string>
+   </property>
+  </action>
+  <action name="actionMergeCopyAllToLeft">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/go-first-3.png</normaloff>:/images/images/go-first-3.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cop&amp;y All to Left</string>
+   </property>
+  </action>
+  <action name="actionImageViewDifferences">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>View &amp;Differences</string>
+   </property>
+  </action>
+  <action name="actionImageDiffBlockSize1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;1</string>
+   </property>
+  </action>
+  <action name="actionImageDiffBlockSize2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;2</string>
+   </property>
+  </action>
+  <action name="actionImageDiffBlockSize4">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;4</string>
+   </property>
+  </action>
+  <action name="actionImageDiffBlockSize8">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;8</string>
+   </property>
+  </action>
+  <action name="actionImageDiffBlockSize16">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>1&amp;6</string>
+   </property>
+  </action>
+  <action name="actionImageDiffBlockSize32">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;32</string>
+   </property>
+  </action>
+  <action name="actionImagePreviousPage">
+   <property name="text">
+    <string>&amp;Previous Page</string>
+   </property>
+  </action>
+  <action name="actionImageNextPage">
+   <property name="text">
+    <string>&amp;Next Page</string>
+   </property>
+  </action>
+  <action name="actionImageActivePanePreviousPage">
+   <property name="text">
+    <string>&amp;Previous Page</string>
+   </property>
+  </action>
+  <action name="actionImageActivePaneNextPage">
+   <property name="text">
+    <string>&amp;Next Page</string>
+   </property>
+  </action>
+  <action name="actionImageSetBackgroundColor">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Set Background Color</string>
+   </property>
+  </action>
+  <action name="actionImageZoom100">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;100%</string>
+   </property>
+  </action>
+  <action name="actionImageZoom800">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;800%</string>
+   </property>
+  </action>
+  <action name="actionImageZoom400">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;400%</string>
+   </property>
+  </action>
+  <action name="actionImageZoom200">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;200%</string>
+   </property>
+  </action>
+  <action name="actionImageZoom50">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;50%</string>
+   </property>
+  </action>
+  <action name="actionImageZoom25">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>25%</string>
+   </property>
+  </action>
+  <action name="actionImageOverlayNone">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;None</string>
+   </property>
+  </action>
+  <action name="actionImageOverlayXOR">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;XOR</string>
+   </property>
+  </action>
+  <action name="actionImageOverlayAlphaBlend">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Alpha Blend</string>
+   </property>
+  </action>
+  <action name="actionImageThreshold0">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;0</string>
+   </property>
+  </action>
+  <action name="actionImageThreshold1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;1</string>
+   </property>
+  </action>
+  <action name="actionImageThreshold2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;2</string>
+   </property>
+  </action>
+  <action name="actionImageThreshold4">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;4</string>
+   </property>
+  </action>
+  <action name="actionImageThreshold8">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;8</string>
+   </property>
+  </action>
+  <action name="actionImageThreshold16">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>1&amp;6</string>
+   </property>
+  </action>
+  <action name="actionImageThreshold32">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;32</string>
+   </property>
+  </action>
+  <action name="actionEditUndo">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/edit-undo-4.png</normaloff>:/images/images/edit-undo-4.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionEditRedo">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/edit-redo-4.png</normaloff>:/images/images/edit-redo-4.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionFileOpen">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/document-open-5.png</normaloff>:/images/images/document-open-5.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionHelpAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionHelpAboutQt">
+   <property name="text">
+    <string>About &amp;Qt</string>
+   </property>
+  </action>
+  <action name="actionFileSave">
+   <property name="icon">
+    <iconset resource="qtimerge.qrc">
+     <normaloff>:/images/images/document-save-3.png</normaloff>:/images/images/document-save-3.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+  </action>
+  <action name="actionFileClose">
+   <property name="text">
+    <string>&amp;Close</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="qtimerge.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionFileExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/system-log-out-3.png</file>
+        <file>images/document-open-5.png</file>
+        <file>images/edit-redo-4.png</file>
+        <file>images/edit-undo-4.png</file>
+        <file>images/go-bottom-4.png</file>
+        <file>images/go-down-5.png</file>
+        <file>images/go-first-3.png</file>
+        <file>images/go-last-3.png</file>
+        <file>images/go-next-5.png</file>
+        <file>images/go-previous-5.png</file>
+        <file>images/go-top-4.png</file>
+        <file>images/go-up-5.png</file>
+        <file>images/document-save-3.png</file>
+        <file>images/checkered.png</file>
+        <file>images/image-x-generic.png</file>
+    </qresource>
+</RCC>
